@@ -15,10 +15,10 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: Bro-k Cupid_development
+  database: bro_development
   pool: 5
-  username: Bro-k Cupid
-  password:
+  username: postgres
+  password: leethaxor
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -41,15 +41,15 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: Bro-k Cupid_test
+  database: bro_test
   pool: 5
-  username: Bro-k Cupid
-  password:
+  username: postgres
+  password: leethaxor
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: Bro-k Cupid_production
+  database: bro_production
   pool: 5
-  username: Bro-k Cupid
-  password:
+  username: postgres
+  password: leethaxor
