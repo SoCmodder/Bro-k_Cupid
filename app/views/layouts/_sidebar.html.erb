@@ -1,0 +1,18 @@
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Sidebar</li>
+              <li><%= link_to "Near Me Now", "/path1"  %></li>
+              <li><%= link_to "My Bros", "/path2"  %></li>
+              <li><%= link_to "Brotato Chip", "/path3"  %></li>
+            </ul>
+          </div><!--/.well -->
+      </div><!--/span-->
+      <div class="span9">
+          <%= bootstrap_flash %>
+          <%= yield %>
+      </div>
+    </div><!--/row-->
