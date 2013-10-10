@@ -25,12 +25,17 @@ gem 'therubyracer', :platforms => :ruby
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'strong_parameters'
+gem 'faker', '1.1.2'
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
+gem 'bootstrap-sass', '~> 2.0.1'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
-# gem 'jbuilder'
+ gem 'jbuilder', '1.0.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
