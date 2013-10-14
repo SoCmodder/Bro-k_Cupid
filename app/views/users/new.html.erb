@@ -1,10 +1,10 @@
-<<<<<<< .merge_file_a0cCy0
-<<<<<<< .merge_file_hEINYF
+<% provide(:title, 'Sign up') %>
 <h1>Sign up</h1>
 
 <div class="row">
     <div class="span6 offset3">
         <%= form_for(@user) do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
 
             <%= f.label :name %>
             <%= f.text_field :name %>
@@ -22,12 +22,3 @@
         <% end %>
     </div>
 </div>
-
-=======
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
->>>>>>> .merge_file_0jexzB
-=======
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
->>>>>>> .merge_file_98J1e1

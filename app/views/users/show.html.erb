@@ -8,9 +8,25 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
     </h1>
+    <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+            <li class="nav-header">Sidebar</li>
+            <li><%= link_to "Brotato chip", "/path3" %></li>
+        </ul>
+    </div>
     </section>
     </aside>
+
+    <div class="span8">
+        <% if @user.posts.any? %>
+            <h3>Posts (<%= @user.posts.count %>)</h3>
+            <ol class="posts">
+                <%= render @posts %>
+            </ol>
+            <%= will_paginate @posts %>
+        <% end %>
+    </div>
+
 </div>
 
-<%= render 'layouts/sidebar' %>
 <%= render 'layouts/footer' %>
