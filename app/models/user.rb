@@ -1,5 +1,12 @@
 class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
+  
+  has_many :friendships
+  has_many :friends, :through => :friendships
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+
+
   before_save { self.email = email.downcase }
   before_create :create_remember_token
   attr_accessible :email, :first_name, :last_name, :name, :password, :password_confirmation

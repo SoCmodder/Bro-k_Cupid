@@ -4,22 +4,38 @@
 <div class="row">
     <aside class="span4">
     <section>
-    <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-    </h1>
-    <div class="well sidebar-nav">
-        <ul class="nav nav-list">
-            <li class="nav-header">Sidebar</li>
-            <li><%= link_to "Brotato chip", "/path3" %></li>
-        </ul>
-    </div>
+        <%= render 'shared/user_info' %>
     </section>
+    <section>
+        <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+                <li class="nav-header">Sidebar</li>
+                <li><%= link_to "Brotato chip", "/path3" %></li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <h2>Friends</h2>
+        <ul>
+            <% for friendship in @user.friendships %>
+                <li>
+                    <%=h friendship.friend.name %>
+                    (<%= link_to "remove", friendship, :method => :delete %>)
+                    </li>
+                <% end %>
+
+            <% for user in @user.inverse_friends %>
+                <li><%=h user.name %></li>
+            <% end %>
+            </ul>
+        <p><%= link_to "Find Friends", users_path %></p>
+    </section>
+    
     </aside>
 
     <div class="span8">
         <% if @user.posts.any? %>
-            <h3>Posts (<%= @user.posts.count %>)</h3>
+            <h3>My Posts (<%= @user.posts.count %>)</h3>
             <ol class="posts">
                 <%= render @posts %>
             </ol>
