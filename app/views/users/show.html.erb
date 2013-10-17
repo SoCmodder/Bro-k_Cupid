@@ -28,14 +28,13 @@
                 <li><%=h user.name %></li>
             <% end %>
             </ul>
-        <p><%= link_to "Find Friends", users_path %></p>
     </section>
     
     </aside>
 
     <div class="span8">
         <% if @user.posts.any? %>
-            <h3>My Posts (<%= @user.posts.count %>)</h3>
+            <h3><%= @user.name %> Posts (<%= @user.posts.count %>)</h3>
             <ol class="posts">
                 <%= render @posts %>
             </ol>
