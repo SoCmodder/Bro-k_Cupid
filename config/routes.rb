@@ -1,4 +1,6 @@
 BroKCupid::Application.routes.draw do
+  resources :reservations
+  resources :events
   resources :friendships
   resources :users
   resources :sessions, only: [:new, :create, :destroy]

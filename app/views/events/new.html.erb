@@ -1,0 +1,25 @@
+<h1>Create Event</h1>
+
+<div class="row">
+    <div class="span6 offset3">
+        <%= form_for(@event) do |f| %>
+            <%= render 'shared/error_messages', object: f.object %>
+
+            <%= f.label :title %>
+            <%= f.text_field :title %>
+
+            <%= f.label :description %>
+            <%= f.text_field :description %>
+
+            <%= f.label :location %>
+            <%= f.text_field :location %>
+
+            <%= f.label :time %>
+            <%= f.datetime_select :time,
+                :order => [:month, :day, :hour, :minute] %>
+
+            <%= f.submit "Create Event", class: "btn btn-large btn-primary" %>
+        <% end %>
+    </div>
+</div>
+

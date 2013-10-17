@@ -1,0 +1,11 @@
+<h1>All Events</h1>
+
+<%= render 'layouts/header' %>
+
+<%= will_paginate %>
+
+<ul class="events">
+    <%= render @events %>
+</ul>
+
+<%= will_paginate %>

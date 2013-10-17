@@ -1,0 +1,19 @@
+<% title "Reservations" %>
+
+<table>
+  <tr>
+    <th>Event</th>
+    <th>Attendee</th>
+  </tr>
+  <% for reservation in @reservations %>
+    <tr>
+      <td><%= reservation.event_id %></td>
+      <td><%= reservation.attendee_id %></td>
+      <td><%= link_to "Show", reservation %></td>
+      <td><%= link_to "Edit", edit_reservation_path(reservation) %></td>
+      <td><%= link_to "Destroy", reservation, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Reservation", new_reservation_path %></p>

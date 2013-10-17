@@ -1,0 +1,16 @@
+<% title "Reservation" %>
+
+<p>
+  <strong>Event:</strong>
+  <%= @reservation.event_id %>
+</p>
+<p>
+  <strong>Attendee:</strong>
+  <%= @reservation.attendee_id %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_reservation_path(@reservation) %> |
+  <%= link_to "Destroy", @reservation, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", reservations_path %>
+</p>

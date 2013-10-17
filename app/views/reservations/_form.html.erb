@@ -1,0 +1,12 @@
+<%= form_for @reservation do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :event_id %><br />
+    <%= f.number_field :event_id %>
+  </p>
+  <p>
+    <%= f.label :attendee_id %><br />
+    <%= f.number_field :attendee_id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>
