@@ -17,8 +17,8 @@ development:
   encoding: unicode
   database: bro_development
   pool: 5
-  username: postgres
-  password: leethaxor
+  username: socmodder
+  password: xxxglugxxx
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -43,13 +43,13 @@ test:
   encoding: unicode
   database: bro_test
   pool: 5
-  username: postgres
-  password: leethaxor
+  username: socmodder
+  password: xxxglugxxx
 
 production:
   adapter: postgresql
   encoding: unicode
   database: bro_production
   pool: 5
-  username: postgres
-  password: leethaxor
+  username: socmodder
+  password: xxxglugxxx
