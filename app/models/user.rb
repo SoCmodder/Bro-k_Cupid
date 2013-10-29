@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
             uniqueness: {case_sensitive: false})
   has_secure_password
   validates :password, length: { minimum: 6 }
+  
+  scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
 
   def User.new_remember_token
       SecureRandom.urlsafe_base64
