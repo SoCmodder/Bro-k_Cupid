@@ -10,4 +10,14 @@ class QuestionsController < ApplicationController
       redirect_to root_url
     end
   end
+
+  def index
+
+  end
+
+  private
+
+    def question_params
+      params.require(:question).permit(:content)
+    end
 end
