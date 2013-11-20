@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :reservations, dependent: :destroy
   has_many :events, dependent: :destroy
+  has_many :questions
 
   before_save { self.email = email.downcase }
   before_create :create_remember_token

@@ -1,0 +1,42 @@
+<% provide(:title, 'Create New Question') %>
+<%= render 'layouts/header' %>
+<div class="row">
+  <div class="span6 offset5">
+    <%= form_for(@question) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <p>
+          <%= f.label :text, "Question Text" %>
+          <%= f.text_field :text %>
+        </p>
+
+        <p>
+          <%= f.label :ans1, "Answer 1" %>
+          <%= f.text_field :ans1 %>
+        </p>
+
+        <p>
+          <%= f.label :ans2, "Answer 2" %>
+          <%= f.text_field :ans2 %>
+        </p>
+
+        <p>
+          <%= f.label :ans3, "Answer 3" %>
+          <%= f.text_field :ans3 %>
+        </p>
+
+        <p>
+          <%= f.label :ans4, "Answer 4" %>
+          <%= f.text_field :ans4 %>
+        </p>
+
+        <p>
+          <%= f.label :ans5, "Answer 5" %>
+          <%= f.text_field :ans5 %>
+        </p>
+
+        <p>
+          <%= f.submit "Submit Question", class: "btn btn-large btn-primary" %>
+        </p>
+    <% end %>
+  </div>
+</div>

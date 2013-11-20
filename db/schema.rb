@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131017194607) do
+ActiveRecord::Schema.define(:version => 20131120181118) do
 
   create_table "events", :force => true do |t|
     t.integer  "user_id"
@@ -45,9 +45,29 @@ ActiveRecord::Schema.define(:version => 20131017194607) do
 
   add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"
 
+  create_table "questions", :force => true do |t|
+    t.string   "text"
+    t.string   "ans1"
+    t.string   "ans2"
+    t.string   "ans3"
+    t.string   "ans4"
+    t.string   "ans5"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "reservations", :force => true do |t|
     t.integer  "event_id"
     t.integer  "attendee_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "user_answers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.integer  "importance"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

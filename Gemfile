@@ -21,8 +21,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'therubyracer', :platforms => :ruby
-gem 'less-rails'
+#gem 'therubyracer', :platforms => :ruby
+#gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'strong_parameters'
@@ -32,7 +32,7 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'bootstrap-sass', '~> 2.0.1'
 
 gem 'nifty-generators', :group => :development
-gem 'mocha'
+#gem 'mocha'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
