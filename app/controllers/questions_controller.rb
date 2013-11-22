@@ -1,4 +1,9 @@
 class QuestionsController < ApplicationController
+
+  def show
+    @question = Question.find(params[:id])
+  end
+
   def new
     @question = Question.new
   end
@@ -12,12 +17,12 @@ class QuestionsController < ApplicationController
   end
 
   def index
-
+    @questions = Question.paginate(page: params[:page])
   end
 
   private
 
     def question_params
-      params.require(:question).permit(:content)
+      params.require(:question).permit(:text, :ans1, :ans2, :ans3, :ans4, :ans5)
     end
 end

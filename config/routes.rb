@@ -16,6 +16,7 @@ BroKCupid::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/create_question', to: 'questions#new',via: 'get'
+  match '/answer_questions', to: 'questions#index', via: 'get'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
