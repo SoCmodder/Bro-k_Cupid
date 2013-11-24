@@ -4,21 +4,28 @@
     <div class="span6 offset3">
         <%= form_for(@event) do |f| %>
             <%= render 'shared/error_messages', object: f.object %>
+            <p>
+                <%= f.label :title, "Name of Event: (The bro-down, lifting with the bros, etc...)" %>
+                <%= f.text_field :title %>
+            </p>
 
-            <%= f.label :title %>
-            <%= f.text_field :title %>
+            <p>
+                <%= f.label :description, "Description: (Let your bros know what this shindig is about.)" %>
+                <%= f.text_field :description %>
+            </p>
 
-            <%= f.label :description %>
-            <%= f.text_field :description %>
+            <p>
+                <%= f.label :location, "Location: (Where da party at?)" %>
+                <%= f.text_field :location %>
+            </p>
 
-            <%= f.label :location %>
-            <%= f.text_field :location %>
+                <%= f.label :time, "When is it?" %>
+                <%= f.datetime_select :time,
+                    :order => [:month, :day, :hour, :minute] %>
 
-            <%= f.label :time %>
-            <%= f.datetime_select :time,
-                :order => [:month, :day, :hour, :minute] %>
-
-            <%= f.submit "Create Event", class: "btn btn-large btn-primary" %>
+            <p>
+                <%= f.submit "Create Event", class: "btn btn-large btn-primary" %>
+            </p>
         <% end %>
     </div>
 </div>

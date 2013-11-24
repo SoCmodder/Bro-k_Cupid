@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
     def show
+      @event = Event.find(params[:id])
     end
 
     def index
@@ -11,7 +12,7 @@ class EventsController < ApplicationController
     end
 
     def create
-        @event = current_user.events.build()
+        @event = current_user.events.build(params[:event])
         if @event.save
             flash[:notice] = "Created Event"
             redirect_to root_url
