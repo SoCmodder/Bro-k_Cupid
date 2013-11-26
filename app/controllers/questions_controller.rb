@@ -10,13 +10,13 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-      if @question.save
-        flash[:success] = "Question Created"
-        redirect_to root_url
-      else
-        flash[:error] = "Unable to create question. Please try again later."
-        redirect_to root_url
-      end
+    if @question.save
+      flash[:success] = "Question Created"
+      redirect_to root_url
+    else
+      flash[:error] = "Unable to create question. Please try again later."
+      redirect_to root_url
+    end
   end
 
   def index
@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
 
   private
 
-    def question_params
-      params.require(:question).permit(:text, :ans1, :ans2, :ans3, :ans4, :ans5)
-    end
+  def question_params
+    params.require(:question).permit(:text, :ans1, :ans2, :ans3, :ans4, :ans5)
+  end
 end

@@ -1,3 +1,20 @@
 <%= render 'layouts/header' %>
 
 <% provide(:title, "Content") %>
+<div class="qcontainer">
+  <div class="qtitlecontainer"><p id="text"><%= ($questionNo = $questionNo + 1) %>. <%= question.text %></p></div>
+  <ul>
+    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio1" name="qgroup_<%= question.id %>" value="1"><label for="q<%= question.id %>_radio1" class="css-label cb2">Love it</label></li>
+    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio2" name="qgroup_<%= question.id %>" value="2"><label for="q<%= question.id %>_radio2" class="css-label cb2">It's alright</label></li>
+    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio3" name="qgroup_<%= question.id %>" value="3"><label for="q<%= question.id %>_radio3" class="css-label cb2">Doesn't matter to me</label></li>
+    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio4" name="qgroup_<%= question.id %>" value="4"><label for="q<%= question.id %>_radio4" class="css-label cb2">Don't like it</label></li>
+    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio5" name="qgroup_<%= question.id %>" value="5"><label for="q<%= question.id %>_radio5" class="css-label cb2">Hate it</label></li>
+  </ul>
+  <ul>
+    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp1" name="qgroup_<%= question.id %>" value="1"><label for="q<%= question.id %>_radio1" class="css-label cb2">Very Important</label></li>
+    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp2" name="qgroup_<%= question.id %>" value="2"><label for="q<%= question.id %>_radio2" class="css-label cb2">Kinda Important</label></li>
+    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp3" name="qgroup_<%= question.id %>" value="3"><label for="q<%= question.id %>_radio3" class="css-label cb2">Who cares?</label></li>
+    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp4" name="qgroup_<%= question.id %>" value="4"><label for="q<%= question.id %>_radio4" class="css-label cb2">Nah, that ain't me.</label></li>
+    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp5" name="qgroup_<%= question.id %>" value="5"><label for="q<%= question.id %>_radio5" class="css-label cb2">That's wack!</label></li>
+  </ul>
+</div>

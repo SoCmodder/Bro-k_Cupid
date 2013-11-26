@@ -5,5 +5,6 @@
   </div>
   <p id="desc"><%= event.description %></p>
   <p id="location" style="float:right; margin-top: -85px; padding-right:20px; text-align: right;"><%= event.location %></p>
-  <a href="#" class="submit" style="float: right; margin-top: -50px; width: 140px;">Attend</a>
+  <a href="events/<%= event.id %>" class="submit" style="float: right; margin-top: -50px; width: 140px;">Attend</a>
+  <%= link_to "Event Page", event_path(event.id) %>
 </div>

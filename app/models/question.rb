@@ -1,3 +1,4 @@
 class Question < ActiveRecord::Base
-  attr_accessible :ans1, :ans2, :ans3, :ans4, :ans5, :text
+  attr_accessible :text
+  has_one :user_answer
 end

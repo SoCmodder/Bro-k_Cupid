@@ -27,7 +27,7 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     if @reservation.update_attributes(params[:reservation])
-      redirect_to @reservation, :notice  => "Successfully updated reservation."
+      redirect_to @reservation, :notice => "Successfully updated reservation."
     else
       render :action => 'edit'
     end
