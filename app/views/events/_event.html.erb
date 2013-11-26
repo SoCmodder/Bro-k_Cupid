@@ -1,10 +1,12 @@
 <div class="econtainer">
   <div class="etitlecontainer">
-  <p id="text"><b><%= event.title %></b><div style="text-align: right; margin-top: -22px; padding-right: 20px;"><%= event.time %></div>
+  <p id="text"><b><%= event.title %></b><div style="text-align: right; margin-top: -22px; padding-right: 20px;"><%= event.time %>
+  </div>
   </p>
   </div>
   <p id="desc"><%= event.description %></p>
   <p id="location" style="float:right; margin-top: -85px; padding-right:20px; text-align: right;"><%= event.location %></p>
-  <a href="events/<%= event.id %>" class="submit" style="float: right; margin-top: -50px; width: 140px;">Attend</a>
-  <%= link_to "Event Page", event_path(event.id) %>
+  <div class="container">
+  <%= link_to "Attend", reservations_path({:attendee_id=>current_user, :event_id=>event.id}), :class=>"submit", :method => :post %>
+  </div>
 </div>

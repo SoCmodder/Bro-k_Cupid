@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
+    @user = current_user
     #@attendees = @event.attendees.paginate(page: params[:page])
   end
 

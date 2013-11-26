@@ -12,11 +12,10 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(params[:reservation])
+    @event = Event.find(params[:event_id])
+    @reservation = @event.reservations.build(:attendee_id => params[:attendee_id])
     if @reservation.save
-      redirect_to @reservation, :notice => "Successfully created reservation."
-    else
-      render :action => 'new'
+      redirect_to @event, :success => "Successfully created reservation."
     end
   end
 

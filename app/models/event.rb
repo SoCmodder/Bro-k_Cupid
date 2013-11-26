@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   belongs_to :host, :class_name => "User"
-  has_many :attendees, :through => :reservations
+  has_many :reservations
 
   attr_accessible :description, :location, :title, :day, :time
 
