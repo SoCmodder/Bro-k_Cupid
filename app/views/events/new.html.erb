@@ -1,32 +1,32 @@
-<h1>Create Event</h1>
+<% provide(:title, 'Create Event') %>
+<%= render 'layouts/header' %>
 
-<div class="row">
-    <div class="span6 offset3">
-        <%= form_for(@event) do |f| %>
-            <%= render 'shared/error_messages', object: f.object %>
-            <p>
-                <%= f.label :title, "Name of Event: (The bro-down, lifting with the bros, etc...)" %>
-                <%= f.text_field :title %>
-            </p>
+<div style="width: 500px; margin-left: auto; margin-right: auto;">
 
-            <p>
-                <%= f.label :description, "Description: (Let your bros know what this shindig is about.)" %>
-                <%= f.text_field :description %>
-            </p>
+  <h3 class="title">Create an event</h3>
+  <h6 class="title">Create a public event for other users.</h6>
+  <br /><br />
 
-            <p>
-                <%= f.label :location, "Location: (Where da party at?)" %>
-                <%= f.text_field :location %>
-            </p>
+  <%= form_for(@event) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
 
-                <%= f.label :time, "When is it?" %>
-                <%= f.datetime_select :time,
-                    :order => [:month, :day, :hour, :minute] %>
+      <%= f.label :title, :class => "fieldlabel" %>
+      <%= f.text_field :title, :class => "textfield" %>
 
-            <p>
-                <%= f.submit "Create Event", class: "btn btn-large btn-primary" %>
-            </p>
-        <% end %>
-    </div>
+      <%= f.label :description, :class => "fieldlabel" %>
+      <%= f.text_field :description, :class => "textfield" %>
+
+      <%= f.label :location, :class => "fieldlabel" %>
+      <%= f.text_field :location, :class => "textfield" %>
+
+      <%= f.label :time, :class => "fieldlabel" %>
+      <div class="dateselector">
+        <%= f.datetime_select :time, :class => "textfield",
+                              :order => [:month, :day, :hour, :minute] %>
+      </div>
+
+      <hr style="height:1px;"/>
+
+      <%= f.submit "Create Event", class: "btn btn-large btn-primary", :style => "width: 180px; float: right" %>
+  <% end %>
 </div>
-

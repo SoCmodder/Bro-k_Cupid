@@ -1,16 +1,144 @@
+// Place all the styles related to the questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
 
 $grayLighter: #eaeaea;
 
 .events {
-    list-style: none;
-    margin: 0;
-    li {
-        overflow: auto;
-        padding: 10px 0;
-        border-top: 1px solid $grayLighter;
-        &:last-child {
-            border-bottom: 1px solid $grayLighter;
-        }
+  list-style: none;
+  margin: 0;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #BBB;
+
+  li {
+    overflow: hidden;
+    padding: 4px 0;
+  }
+  .etitlecontainer {
+    height: 35px;
+    cursor: pointer;
+    background: #FFF;
+    #text {
+      padding-top: 5px;
     }
+  }
+  .etitlecontainer:hover {
+    background: #fbafe3;
+  }
+
+  .econtainer {
+    overflow: hidden;
+    height: 35px;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #BBB;
+
+    #desc {
+      font-family: Arial;
+      font-weight: none;
+      margin-bottom: 0;
+      padding-left: 35px;
+      color: #000;
+      width: 300px;
+      height: 85px;
+      overflow: auto;
+    }
+
+    p {
+      font-family: Arial;
+      margin-bottom: 0;
+      padding-left: 30px;
+      color: #000;
+    }
+  }
 }
+
+.textfield {
+  margin-top: -34px;
+  margin-left: 120px;
+  width: 292px;
+}
+.fieldlabel {
+  width: 100px;
+  text-align: right;
+}
+
+#event_time_2i { /* Month Selector */
+  width: 100px;
+}
+
+.dateselector {
+  margin-top: -28px;
+  margin-left: 120px;
+}
+
+.dateselector select {
+  width: 55px;
+}
+
+h3, h4, h5, h6 {
+  margin: 3px 0 3px 0;
+}
+
+h3.title, h5.title {
+  color: #888;
+}
+
+hr {
+  border:0;
+  color:#CCC;
+  background:#CCC;
+  height:1px;
+}
+
+.submit {
+  -moz-box-shadow:inset 0px 1px 0px 0px #fbafe3;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #fbafe3;
+  box-shadow:inset 0px 1px 0px 0px #fbafe3;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff5bb0), color-stop(1, #ef027d) );
+  background:-moz-linear-gradient( center top, #ff5bb0 5%, #ef027d 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bb0', endColorstr='#ef027d');
+  background-color:#ff5bb0;
+  -webkit-border-top-left-radius:20px;
+  -moz-border-radius-topleft:20px;
+  border-top-left-radius:20px;
+  -webkit-border-top-right-radius:20px;
+  -moz-border-radius-topright:20px;
+  border-top-right-radius:20px;
+  -webkit-border-bottom-right-radius:20px;
+  -moz-border-radius-bottomright:20px;
+  border-bottom-right-radius:20px;
+  -webkit-border-bottom-left-radius:20px;
+  -moz-border-radius-bottomleft:20px;
+  border-bottom-left-radius:20px;
+  text-indent:0;
+  border:1px solid #ee1eb5;
+  display:inline-block;
+  color:#ffffff;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  font-style:normal;
+  height:40px;
+  line-height:40px;
+  width:175px;
+  text-decoration:none;
+  text-align:center;
+  text-shadow:1px 1px 0px #c20469;
+}
+.submit:hover {
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ef027d), color-stop(1, #ff5bb0) );
+  background:-moz-linear-gradient( center top, #ef027d 5%, #ff5bb0 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ef027d', endColorstr='#ff5bb0');
+  background-color:#ef027d;
+  text-decoration:none;
+  color:#FFF;
+}.submit:active {
+   position:relative;
+   top:1px;
+ }.submit:link {
+    text-decoration:none;
+    color:#FFF;
+  }

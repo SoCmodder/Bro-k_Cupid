@@ -1,3 +1,9 @@
-<li>
-  <%= event.title %>
-</li>
+<div class="econtainer">
+  <div class="etitlecontainer">
+  <p id="text"><b><%= event.title %></b><div style="text-align: right; margin-top: -22px; padding-right: 20px;"><%= event.time %></div>
+  </p>
+  </div>
+  <p id="desc"><%= event.description %></p>
+  <p id="location" style="float:right; margin-top: -85px; padding-right:20px; text-align: right;"><%= event.location %></p>
+  <a href="#" class="submit" style="float: right; margin-top: -50px; width: 140px;">Attend</a>
+</div>

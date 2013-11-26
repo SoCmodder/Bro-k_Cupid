@@ -1,11 +1,28 @@
-<h1>All Events</h1>
-
+<% provide(:title, 'Attend Events') %>
 <%= render 'layouts/header' %>
 
-<%= will_paginate %>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $(".econtainer").ready(function(){
+        $(".econtainer").click(function(){
+            if ($($(".etitlecontainer").selector + ":hover").length > 0 && $(this).height() > 100) {
+                $(this).stop().animate({'height': '35px'}, 300);
+            } else if ($(this).height() < 100) {
+                $(this).stop().animate({'height': '115px'}, 300);
+            }
+        });
+    });
+</script>
 
-<ul class="events">
+<div style="width: 500px; margin-left: auto; margin-right: auto;">
+  <h3 class="title">Attend events</h3>
+  <h5 class="title">Attend public events that have been created by other users. </h5>
+  <br />
+  <%= will_paginate %>
+  <div class="events">
     <%= render @events %>
-</ul>
+  </div>
+  <%= will_paginate %>
+  <br />
+</div>
 
-<%= will_paginate %>
