@@ -21,8 +21,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'therubyracer', :platforms => :ruby
-gem 'less-rails'
+#gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'strong_parameters'
