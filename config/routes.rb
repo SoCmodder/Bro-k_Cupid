@@ -6,6 +6,7 @@ BroKCupid::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :posts, only: [:create, :destroy]
   resources :questions
+  resources :user_answers
 
   root :to => 'static_pages#home'
 

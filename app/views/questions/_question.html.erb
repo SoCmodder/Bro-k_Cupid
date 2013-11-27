@@ -1,17 +1,20 @@
+<%= javascript_include_tag "questions.js"%>
 <div class="qcontainer">
-  <div class="qtitlecontainer"><p id="text"><%= ($questionNo = $questionNo + 1) %>. <%= question.text %></p></div>
+    <div class="qtitlecontainer"><p id="text"><%= ($questionNo = $questionNo + 1) %>. <%= question.text %></p></div>
   <ul>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio1" name="qgroup_<%= question.id %>" value="1"><label for="q<%= question.id %>_radio1" class="css-label cb2">Love it</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio2" name="qgroup_<%= question.id %>" value="2"><label for="q<%= question.id %>_radio2" class="css-label cb2">It's alright</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio3" name="qgroup_<%= question.id %>" value="3"><label for="q<%= question.id %>_radio3" class="css-label cb2">Doesn't matter to me</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio4" name="qgroup_<%= question.id %>" value="4"><label for="q<%= question.id %>_radio4" class="css-label cb2">Don't like it</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio5" name="qgroup_<%= question.id %>" value="5"><label for="q<%= question.id %>_radio5" class="css-label cb2">Hate it</label></li>
-  </ul>
+      <li><input type="radio" class="css-checkbox" id="ans1" name="ans" value="1"><label for="ans1" class="css-label cb2">Love it</label></li>
+      <li><input type="radio" class="css-checkbox" id="ans2" name="ans" value="2"><label for="ans2" class="css-label cb2">It's alright</label></li>
+      <li><input type="radio" class="css-checkbox" id="ans3" name="ans" value="3"><label for="ans3" class="css-label cb2">Doesn't matter to me</label></li>
+      <li><input type="radio" class="css-checkbox" id="ans4" name="ans" value="4"><label for="ans4" class="css-label cb2">Don't like it</label></li>
+      <li><input type="radio" class="css-checkbox" id="ans5" name="ans" value="5"><label for="ans5" class="css-label cb2">Hate it</label></li>
+</ul>
   <ul>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp1" name="qgroup_<%= question.id %>" value="1"><label for="q<%= question.id %>_radio1" class="css-label cb2">Very Important</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp2" name="qgroup_<%= question.id %>" value="2"><label for="q<%= question.id %>_radio2" class="css-label cb2">Kinda Important</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp3" name="qgroup_<%= question.id %>" value="3"><label for="q<%= question.id %>_radio3" class="css-label cb2">Who cares?</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp4" name="qgroup_<%= question.id %>" value="4"><label for="q<%= question.id %>_radio4" class="css-label cb2">Nah, that ain't me.</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp5" name="qgroup_<%= question.id %>" value="5"><label for="q<%= question.id %>_radio5" class="css-label cb2">That's wack!</label></li>
+      <li><input type="radio" class="css-checkbox" id="imp1" name="imp" value="1"><label for="imp1" class="css-label cb2">Very Important</label></li>
+      <li><input type="radio" class="css-checkbox" id="imp2" name="imp" value="2"><label for="imp2" class="css-label cb2">Kinda Important</label></li>
+      <li><input type="radio" class="css-checkbox" id="imp3" name="imp" value="3"><label for="imp3" class="css-label cb2">Who cares?</label></li>
+      <li><input type="radio" class="css-checkbox" id="imp4" name="imp" value="4"><label for="imp4" class="css-label cb2">Nah, that ain't me.</label></li>
+      <li><input type="radio" class="css-checkbox" id="imp5" name="imp" value="5"><label for="imp5" class="css-label cb2">That's wack!</label></li>
   </ul>
+
+  <%= link_to "Submit", user_answers_path({:u_id=>current_user, :q_id=>$questionNo, :ans=>4 , :imp=>4}), :class=>"submit", :method=>:post %>
 </div>

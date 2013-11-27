@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131120181118) do
+ActiveRecord::Schema.define(:version => 20131127033513) do
 
   create_table "events", :force => true do |t|
     t.integer  "user_id"
@@ -47,11 +47,6 @@ ActiveRecord::Schema.define(:version => 20131120181118) do
 
   create_table "questions", :force => true do |t|
     t.string   "text"
-    t.string   "ans1"
-    t.string   "ans2"
-    t.string   "ans3"
-    t.string   "ans4"
-    t.string   "ans5"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -66,11 +61,13 @@ ActiveRecord::Schema.define(:version => 20131120181118) do
   create_table "user_answers", :force => true do |t|
     t.integer  "user_id"
     t.integer  "question_id"
-    t.integer  "answer_id"
     t.integer  "importance"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "answer"
   end
+
+  add_index "user_answers", ["user_id", "question_id"], :name => "index_user_answers_on_user_id_and_question_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"
