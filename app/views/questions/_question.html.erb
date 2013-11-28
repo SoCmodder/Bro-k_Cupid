@@ -1,17 +1,24 @@
 <%= javascript_include_tag "questions.js"%>
 <div class="qcontainer">
   <div class="qtitlecontainer"><p id="text"><%= ($questionNo = $questionNo + 1) %>. <%= question.text %></p></div>
-  <p><%= radio_button_tag :ans, 1, :class=>"css-label cb2" %> Love It</p>
-  <p><%= radio_button_tag :ans, 2, :class=>"css-label cb2" %> Like It</p>
-  <p><%= radio_button_tag :ans, 3, :class=>"css-label cb2" %> It's Alright</p>
-  <p><%= radio_button_tag :ans, 4, :class=>"css-label cb2" %> Not a Huge Fan</p>
-  <p><%= radio_button_tag :ans, 5, :class=>"css-label cb2" %> Hate It</p>
-
-  <p><%= radio_button_tag :imp, 1, :class=>"css-label cb2" %> Extrememly Important </p>
-  <p><%= radio_button_tag :imp, 2, :class=>"css-label cb2" %> Somewhat Important </p>
-  <p><%= radio_button_tag :imp, 3, :class=>"css-label cb2" %> Meh </p>
-  <p><%= radio_button_tag :imp, 4, :class=>"css-label cb2" %> Not Very Important </p>
-  <p><%= radio_button_tag :imp, 5, :class=>"css-label cb2" %> IDGAF, BRO! </p>
-
+  <table>
+    <tr>
+        <td>
+            <p><%= radio_button_tag :ans, 1, :class=>"css-label cb2" %> Love It</p>
+            <p><%= radio_button_tag :ans, 2, :class=>"css-label cb2" %> Like It</p>
+            <p><%= radio_button_tag :ans, 3, :class=>"css-label cb2" %> It's Alright</p>
+            <p><%= radio_button_tag :ans, 4, :class=>"css-label cb2" %> Not a Huge Fan</p>
+            <p><%= radio_button_tag :ans, 5, :class=>"css-label cb2" %> Hate It</p>
+        </td>
+        <td>
+          <p><%= radio_button_tag :imp, 1, :class=>"css-label cb2" %> Extrememly Important </p>
+          <p><%= radio_button_tag :imp, 2, :class=>"css-label cb2" %> Somewhat Important </p>
+          <p><%= radio_button_tag :imp, 3, :class=>"css-label cb2" %> Meh </p>
+          <p><%= radio_button_tag :imp, 4, :class=>"css-label cb2" %> Not Very Important </p>
+          <p><%= radio_button_tag :imp, 5, :class=>"css-label cb2" %> IDGAF, BRO! </p>
+        </td>
+    </tr>
+  </table>
+  <br/>
   <%= link_to "Submit", user_answers_path({:u_id=>current_user, :q_id=>$questionNo}), :class=>"submit", :method=>:post %>
 </div>
