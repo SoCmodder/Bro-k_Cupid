@@ -1,20 +1,17 @@
 <%= javascript_include_tag "questions.js"%>
 <div class="qcontainer">
-    <div class="qtitlecontainer"><p id="text"><%= ($questionNo = $questionNo + 1) %>. <%= question.text %></p></div>
-  <ul>
-      <li><input type="radio" class="css-checkbox" id="ans1" name="ans" value="1"><label for="ans1" class="css-label cb2">Love it</label></li>
-      <li><input type="radio" class="css-checkbox" id="ans2" name="ans" value="2"><label for="ans2" class="css-label cb2">It's alright</label></li>
-      <li><input type="radio" class="css-checkbox" id="ans3" name="ans" value="3"><label for="ans3" class="css-label cb2">Doesn't matter to me</label></li>
-      <li><input type="radio" class="css-checkbox" id="ans4" name="ans" value="4"><label for="ans4" class="css-label cb2">Don't like it</label></li>
-      <li><input type="radio" class="css-checkbox" id="ans5" name="ans" value="5"><label for="ans5" class="css-label cb2">Hate it</label></li>
-</ul>
-  <ul>
-      <li><input type="radio" class="css-checkbox" id="imp1" name="imp" value="1"><label for="imp1" class="css-label cb2">Very Important</label></li>
-      <li><input type="radio" class="css-checkbox" id="imp2" name="imp" value="2"><label for="imp2" class="css-label cb2">Kinda Important</label></li>
-      <li><input type="radio" class="css-checkbox" id="imp3" name="imp" value="3"><label for="imp3" class="css-label cb2">Who cares?</label></li>
-      <li><input type="radio" class="css-checkbox" id="imp4" name="imp" value="4"><label for="imp4" class="css-label cb2">Nah, that ain't me.</label></li>
-      <li><input type="radio" class="css-checkbox" id="imp5" name="imp" value="5"><label for="imp5" class="css-label cb2">That's wack!</label></li>
-  </ul>
+  <div class="qtitlecontainer"><p id="text"><%= ($questionNo = $questionNo + 1) %>. <%= question.text %></p></div>
+  <p><% radio_button_tag :ans, 1, :class=>"css-label cb2" %> Love It</p>
+  <p><% radio_button_tag :ans, 2, :class=>"css-label cb2" %> Like It</p>
+  <p><% radio_button_tag :ans, 3, :class=>"css-label cb2" %> It's Alright</p>
+  <p><% radio_button_tag :ans, 4, :class=>"css-label cb2" %> Not a Huge Fan</p>
+  <p><% radio_button_tag :ans, 5, :class=>"css-label cb2" %> Hate It</p>
 
-  <%= link_to "Submit", user_answers_path({:u_id=>current_user, :q_id=>$questionNo, :ans=>4 , :imp=>4}), :class=>"submit", :method=>:post %>
+  <p><% radio_button_tag :imp, 1, :class=>"css-label cb2" %> Extrememly Important </p>
+  <p><% radio_button_tag :imp, 2, :class=>"css-label cb2" %> Somewhat Important </p>
+  <p><% radio_button_tag :imp, 3, :class=>"css-label cb2" %> Meh </p>
+  <p><% radio_button_tag :imp, 4, :class=>"css-label cb2" %> Not Very Important </p>
+  <p><% radio_button_tag :imp, 5, :class=>"css-label cb2" %> IDGAF, BRO! </p>
+
+  <%= link_to "Submit", user_answers_path({:u_id=>current_user, :q_id=>$questionNo}), :class=>"submit", :method=>:post %>
 </div>
