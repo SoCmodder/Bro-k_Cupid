@@ -17,4 +17,5 @@
     <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp4" name="qgroup_<%= question.id %>" value="4"><label for="q<%= question.id %>_radio4" class="css-label cb2">Nah, that ain't me.</label></li>
     <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp5" name="qgroup_<%= question.id %>" value="5"><label for="q<%= question.id %>_radio5" class="css-label cb2">That's wack!</label></li>
   </ul>
+  <%= link_to "Submit", questions_path(), :class=>"submit", :method => :post %>
 </div>

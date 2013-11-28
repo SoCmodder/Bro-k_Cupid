@@ -1,17 +1,24 @@
 <div class="qcontainer">
   <div class="qtitlecontainer"><p id="text"><%= ($questionNo = $questionNo + 1) %>. <%= question.text %></p></div>
-  <ul>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio1" name="qgroup_<%= question.id %>" value="1"><label for="q<%= question.id %>_radio1" class="css-label cb2">Love it</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio2" name="qgroup_<%= question.id %>" value="2"><label for="q<%= question.id %>_radio2" class="css-label cb2">It's alright</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio3" name="qgroup_<%= question.id %>" value="3"><label for="q<%= question.id %>_radio3" class="css-label cb2">Doesn't matter to me</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio4" name="qgroup_<%= question.id %>" value="4"><label for="q<%= question.id %>_radio4" class="css-label cb2">Don't like it</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_radio5" name="qgroup_<%= question.id %>" value="5"><label for="q<%= question.id %>_radio5" class="css-label cb2">Hate it</label></li>
-  </ul>
-  <ul>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp1" name="qgroup_<%= question.id %>" value="1"><label for="q<%= question.id %>_radio1" class="css-label cb2">Very Important</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp2" name="qgroup_<%= question.id %>" value="2"><label for="q<%= question.id %>_radio2" class="css-label cb2">Kinda Important</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp3" name="qgroup_<%= question.id %>" value="3"><label for="q<%= question.id %>_radio3" class="css-label cb2">Who cares?</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp4" name="qgroup_<%= question.id %>" value="4"><label for="q<%= question.id %>_radio4" class="css-label cb2">Nah, that ain't me.</label></li>
-    <li><input type="radio" class="css-checkbox" id="q<%= question.id %>_imp5" name="qgroup_<%= question.id %>" value="5"><label for="q<%= question.id %>_radio5" class="css-label cb2">That's wack!</label></li>
-  </ul>
+  <p> <%= radio_button_tag :answer_id, 1, :class => "css-label cb2" %> Love It </p>
+
+  <p> <%= radio_button_tag :answer_id, 2, :class => "css-label cb2" %> It's Alright </p>
+
+  <p> <%= radio_button_tag :answer_id, 3, :class => "css-label cb2" %> Doesn't Matter </p>
+
+  <p> <%= radio_button_tag :answer_id, 4, :class => "css-label cb2" %> Don't Like It </p>
+
+  <p> <%= radio_button_tag :answer_id, 5, :class => "css-label cb2" %> Hate It </p>
+
+  <p> <%= radio_button_tag :importance, 1, :class => "css-label cb2" %> Extremely Important </p>
+
+  <p> <%= radio_button_tag :importance, 2, :class => "css-label cb2" %> Somewhat Important </p>
+
+  <p> <%= radio_button_tag :importance, 3, :class => "css-label cb2" %> Meh </p>
+
+  <p> <%= radio_button_tag :importance, 4, :class => "css-label cb2" %> Who Cares </p>
+
+  <p> <%= radio_button_tag :importance, 5, :class => "css-label cb2" %> IDGAF </p>
+
+  <%= link_to "Submit", user_answers_path({:question_id=>question.id, :user_id=>current_user}), :class=>"submit", :method=>:post %>
 </div>
