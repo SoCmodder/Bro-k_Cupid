@@ -6,21 +6,25 @@
                 <%= form_for @user_answer, :url=>user_answers_path(@user_answer)  do |f| %>
                     <%= f.hidden_field :question_id, :value=> $questionNo %>
                     <%= f.hidden_field :user_id, :value=> @user.id %>
-                    <span style="float:left"><%= f.radio_button :answer, 1 %> <%= f.label "Love it" %></span>
-                    <span style="float:left"><%= f.radio_button :answer, 2 %> <%= f.label "Like it" %></span>
-                    <span style="float:left"><%= f.radio_button :answer, 3 %> <%= f.label "It's Alright" %></span>
-                    <span style="float:left"><%= f.radio_button :answer, 4 %> <%= f.label "Not a huge fan" %></span>
-                    <span style="float:left"><%= f.radio_button :answer, 5 %> <%= f.label "Hate it" %></span>
+                  <ul>
+                    <li><span style="float:left"><%= f.radio_button :answer, 1 %> <%= f.label "Love it" %></span></li>
+                    <li><span style="float:left"><%= f.radio_button :answer, 2 %> <%= f.label "Like it" %></span></li>
+                    <li><span style="float:left"><%= f.radio_button :answer, 3 %> <%= f.label "It's Alright" %></span></li>
+                    <li><span style="float:left"><%= f.radio_button :answer, 4 %> <%= f.label "Not a huge fan" %></span></li>
+                    <li><span style="float:left"><%= f.radio_button :answer, 5 %> <%= f.label "Hate it" %></span></li>
+                  </ul>
                 </td>
 
                 <td>
-                    <span style="float:left"><%= f.radio_button :importance, 1 %> <%= f.label "Extrememly Important" %></span>
-                    <span style="float:left"><%= f.radio_button :importance, 2 %> <%= f.label "Somewhat Important" %></span>
-                    <span style="float:left"><%= f.radio_button :importance, 3 %> <%= f.label "Meh" %></span>
-                    <span style="float:left"><%= f.radio_button :importance, 4 %> <%= f.label "Not Very Important" %></span>
-                    <span style="float:left"><%= f.radio_button :importance, 5 %> <%= f.label "IDGAF, BRO!" %>
-                    </td>
-                </tr>
+                  <ul>
+                    <li><span style="float:left"><%= f.radio_button :importance, 1 %> <%= f.label "Extrememly Important" %></span></li>
+                    <li><span style="float:left"><%= f.radio_button :importance, 2 %> <%= f.label "Somewhat Important" %></span></li>
+                    <li><span style="float:left"><%= f.radio_button :importance, 3 %> <%= f.label "Meh" %></span></li>
+                    <li><span style="float:left"><%= f.radio_button :importance, 4 %> <%= f.label "Not Very Important" %></span></li>
+                    <li><span style="float:left"><%= f.radio_button :importance, 5 %> <%= f.label "IDGAF, BRO!" %></span></li>
+                  </ul>
+                </td>
+        </tr>
             </table>
             <br/>
             <%= f.submit "Submit", :class=>"submit" %>
