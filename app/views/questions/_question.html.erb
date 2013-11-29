@@ -1,24 +1,29 @@
-<%= javascript_include_tag "questions.js"%>
 <div class="qcontainer">
-  <div class="qtitlecontainer"><p id="text"><%= ($questionNo = $questionNo + 1) %>. <%= question.text %></p></div>
-  <table>
-    <tr>
-        <td>
-            <p><%= radio_button_tag :ans, 1, :class=>"css-label cb2" %> Love It</p>
-            <p><%= radio_button_tag :ans, 2, :class=>"css-label cb2" %> Like It</p>
-            <p><%= radio_button_tag :ans, 3, :class=>"css-label cb2" %> It's Alright</p>
-            <p><%= radio_button_tag :ans, 4, :class=>"css-label cb2" %> Not a Huge Fan</p>
-            <p><%= radio_button_tag :ans, 5, :class=>"css-label cb2" %> Hate It</p>
-        </td>
-        <td>
-          <p><%= radio_button_tag :imp, 1, :class=>"css-label cb2" %> Extrememly Important </p>
-          <p><%= radio_button_tag :imp, 2, :class=>"css-label cb2" %> Somewhat Important </p>
-          <p><%= radio_button_tag :imp, 3, :class=>"css-label cb2" %> Meh </p>
-          <p><%= radio_button_tag :imp, 4, :class=>"css-label cb2" %> Not Very Important </p>
-          <p><%= radio_button_tag :imp, 5, :class=>"css-label cb2" %> IDGAF, BRO! </p>
-        </td>
-    </tr>
-  </table>
-  <br/>
-  <%= link_to "Submit", user_answers_path({:u_id=>current_user, :q_id=>$questionNo, :ans=>2, :imp=>3}), :class=>"submit", :method=>:post %>
-</div>
+    <div class="qtitlecontainer"><p id="text"><%= ($questionNo = $questionNo + 1) %>. <%= question.text %></p></div>
+    <table>
+        <tr>
+            <td>
+                <%= form_for @user_answer, :url=>user_answers_path(@user_answer)  do |f| %>
+                    <%= f.hidden_field :question_id, :value=> $questionNo %>
+                    <%= f.hidden_field :user_id, :value=> @user.id %>
+                    <span style="float:left"><%= f.radio_button :answer, 1 %> <%= f.label "Love it" %></span>
+                    <span style="float:left"><%= f.radio_button :answer, 2 %> <%= f.label "Like it" %></span>
+                    <span style="float:left"><%= f.radio_button :answer, 3 %> <%= f.label "It's Alright" %></span>
+                    <span style="float:left"><%= f.radio_button :answer, 4 %> <%= f.label "Not a huge fan" %></span>
+                    <span style="float:left"><%= f.radio_button :answer, 5 %> <%= f.label "Hate it" %></span>
+                </td>
+
+                <td>
+                    <span style="float:left"><%= f.radio_button :importance, 1 %> <%= f.label "Extrememly Important" %></span>
+                    <span style="float:left"><%= f.radio_button :importance, 2 %> <%= f.label "Somewhat Important" %></span>
+                    <span style="float:left"><%= f.radio_button :importance, 3 %> <%= f.label "Meh" %></span>
+                    <span style="float:left"><%= f.radio_button :importance, 4 %> <%= f.label "Not Very Important" %></span>
+                    <span style="float:left"><%= f.radio_button :importance, 5 %> <%= f.label "IDGAF, BRO!" %>
+                    </td>
+                </tr>
+            </table>
+            <br/>
+            <%= f.submit "Submit", :class=>"submit" %>
+        <% end %>
+    </div>
+
