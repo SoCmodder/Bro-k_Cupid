@@ -1,8 +1,8 @@
-<%= link_to gravatar_for(current_user, size: 52), current_user %>
+<%= link_to gravatar_for(@user, size: 52), @user %>
 <h1>
-    <%= current_user.name %>
+    <%= @user.name %>
 </h1>
 <span>
-    <%= pluralize(current_user.posts.count, "post") %>
+    <%= pluralize(@user.posts.count, "post") %>
 </span>
 
