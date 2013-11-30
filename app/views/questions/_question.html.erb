@@ -1,33 +1,45 @@
 <div class="qcontainer">
-    <div class="qtitlecontainer"><p id="text"><%= ($questionNo = $questionNo + 1) %>. <%= question.text %></p></div>
-    <table>
-        <tr>
+  <div class="qtitlecontainer"><p id="text"><%= ($questionNo = $questionNo + 1) %>. <%= question.text %></p></div>
+  <table>
+    <tr>
+      <td>
+        <%= form_for @user_answer, :url => user_answers_path(@user_answer) do |f| %>
+            <%= f.hidden_field :question_id, :value => $questionNo %>
+            <%= f.hidden_field :user_id, :value => @user.id %>
+            <ul>
+              <li><span style="float:left"><%= f.radio_button :answer, 1 %> <%= f.label :answer, "Love it" %></span>
+              </li>
+              <li><span style="float:left"><%= f.radio_button :answer, 2 %> <%= f.label :answer, "Like it" %></span>
+              </li>
+              <li>
+                <span style="float:left"><%= f.radio_button :answer, 3 %> <%= f.label :answer, "It's Alright" %></span>
+              </li>
+              <li>
+                <span style="float:left"><%= f.radio_button :answer, 4 %> <%= f.label :answer, "Not a huge fan" %></span>
+              </li>
+              <li><span style="float:left"><%= f.radio_button :answer, 5 %> <%= f.label :answer, "Hate it" %></span>
+              </li>
+            </ul>
+            </td>
             <td>
-                <%= form_for @user_answer, :url=>user_answers_path(@user_answer)  do |f| %>
-                    <%= f.hidden_field :question_id, :value=> $questionNo %>
-                    <%= f.hidden_field :user_id, :value=> @user.id %>
-                  <ul>
-                    <li><span style="float:left"><%= f.radio_button :answer, 1 %> <%= f.label "Love it" %></span></li>
-                    <li><span style="float:left"><%= f.radio_button :answer, 2 %> <%= f.label "Like it" %></span></li>
-                    <li><span style="float:left"><%= f.radio_button :answer, 3 %> <%= f.label "It's Alright" %></span></li>
-                    <li><span style="float:left"><%= f.radio_button :answer, 4 %> <%= f.label "Not a huge fan" %></span></li>
-                    <li><span style="float:left"><%= f.radio_button :answer, 5 %> <%= f.label "Hate it" %></span></li>
-                  </ul>
-                </td>
-
-                <td>
-                  <ul>
-                    <li><span style="float:left"><%= f.radio_button :importance, 1 %> <%= f.label "Extrememly Important" %></span></li>
-                    <li><span style="float:left"><%= f.radio_button :importance, 2 %> <%= f.label "Somewhat Important" %></span></li>
-                    <li><span style="float:left"><%= f.radio_button :importance, 3 %> <%= f.label "Meh" %></span></li>
-                    <li><span style="float:left"><%= f.radio_button :importance, 4 %> <%= f.label "Not Very Important" %></span></li>
-                    <li><span style="float:left"><%= f.radio_button :importance, 5 %> <%= f.label "IDGAF, BRO!" %></span></li>
-                  </ul>
-                </td>
-        </tr>
+              <ul>
+                <li>
+                  <span style="float:left"><%= f.radio_button :importance, 1 %> <%= f.label :importance, "Extrememly Important" %></span>
+                </li>
+                <li>
+                  <span style="float:left"><%= f.radio_button :importance, 2 %> <%= f.label :importance, "Somewhat Important" %></span>
+                </li>
+                <li><span style="float:left"><%= f.radio_button :importance, 3 %> <%= f.label :importance, "Meh" %></span></li>
+                <li>
+                  <span style="float:left"><%= f.radio_button :importance, 4 %> <%= f.label :importance, "Not Very Important" %></span>
+                </li>
+                <li><span style="float:left"><%= f.radio_button :importance, 5 %> <%= f.label :importance, "IDGAF, BRO!" %></span>
+                </li>
+              </ul>
+            </td>
+            </tr>
             </table>
-            <br/>
-            <%= f.submit "Submit", :class=>"submit" %>
+            <%= f.submit "Submit", :class => "submit" %>
         <% end %>
-    </div>
+        </div>
 

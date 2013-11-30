@@ -3,6 +3,14 @@ $grayMediumLight: #eaeaea;
 @import "bootstrap";
 
 /* universal */
+input[type="radio"], label{
+  margin-top: 5px;
+  float:left;
+}
+input{
+  clear:left;
+}
+
 html {
   overflow-y: scroll;
 }
@@ -164,6 +172,7 @@ aside {
   text-decoration: none;
   text-align: center;
   text-shadow: 1px 1px 0px #c20469;
+  min-width: 150px;
 }
 
 .submit:hover {

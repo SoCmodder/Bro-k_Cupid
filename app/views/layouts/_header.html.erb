@@ -5,7 +5,7 @@
             <nav>
                 <ul class="nav pull-right">
                     <li><%= link_to "Home", current_user %></li>
-                    <li><%= link_to "Help", help_path %></li>
+
                     <% if signed_in? %>
                         <li><%= link_to "Find Bros", users_path %></li>
 
@@ -40,6 +40,7 @@
                             </li>
                         </ul>
                         </li>
+                        <li><%= link_to "Help", help_path %></li>
                     <% else %>
                         <li><%= link_to "Sign in", signin_path %></li>
                     <% end %>

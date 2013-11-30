@@ -19,11 +19,11 @@ class QuestionsController < ApplicationController
     end
   end
 
-  
+
   def index
     @questions = Question.paginate(page: params[:page])
     @user = current_user
-    @user_answer = @user.user_answers.new(:user_id=>@user.id)
+    @user_answer = @user.user_answers.new(:user_id => @user.id)
   end
 
   private
