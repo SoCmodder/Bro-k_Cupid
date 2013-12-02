@@ -11,10 +11,10 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      flash[:success] = "Question Created"
+      flash[:success] = "That's a totally chill topic, dude!"
       redirect_to root_url
     else
-      flash[:error] = "Unable to create question. Please try again later."
+      flash[:error] = "Sorry man, we couldn't create that topic at this time. Maybe hit the gym and try again later."
       redirect_to root_url
     end
   end

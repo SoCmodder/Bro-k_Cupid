@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
     @event = Event.find(params[:event_id])
     @reservation = @event.reservations.build(:attendee_id => params[:attendee_id])
     if @reservation.save
-      redirect_to @event, :success => "Successfully created reservation."
+      redirect_to @event, :success => "Dope event, bro!"
     end
   end
 
@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
   def update
     @reservation = Reservation.find(params[:id])
     if @reservation.update_attributes(params[:reservation])
-      redirect_to @reservation, :notice => "Successfully updated reservation."
+      redirect_to @reservation, :notice => "Dat Update, yo!"
     else
       render :action => 'edit'
     end
@@ -35,6 +35,6 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    redirect_to reservations_url, :notice => "Successfully destroyed reservation."
+    redirect_to reservations_url, :notice => "Yeah, that event was wack."
   end
 end

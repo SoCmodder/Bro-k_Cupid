@@ -17,7 +17,11 @@
       <%= link_to "Bro-K Cupid", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
+          <% if signed_in? %>
+          <li><%= link_to current_user.name, current_user %></li>
+          <% else %>
           <li><%= link_to "Home", current_user %></li>
+          <% end %>
 
           <% if signed_in? %>
               <li><%= link_to "Find Bros", users_path %></li>

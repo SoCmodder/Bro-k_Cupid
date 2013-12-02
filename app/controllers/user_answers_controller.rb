@@ -18,7 +18,7 @@ class UserAnswersController < ApplicationController
             flash[:notice] = "Thanks bro, got your answer"
             redirect_to questions_path
         else
-            flash[:error] = "Couldnt save answer"
+            flash[:error] = "Couldnt save answer, dude. Try again later"
             redirect_to questions_path
         end
     else
