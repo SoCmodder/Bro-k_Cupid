@@ -8,7 +8,30 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.without_user(current_user).paginate(page: params[:page])
+    #@bro_score = Rice::Bro.new()
+    @bros = User.without_user(current_user).all
+
+    # Format this users answers correctly for matching algo
+    #  String of the form "Q_ID ANS IMP Q_ID ANS IMP ... "
+    @user = current_user
+    @user_vector = ""
+    for ans in @user.user_answers do
+        @user_vector = @user_vector+" "+ans.question_id.to_s()+" "+ans.answer.to_s()+" "+ans.importance.to_s()
+    end
+
+    @scores = Hash.new
+    for bro in @bros do
+        @bros_vector = ""
+        for ans in bro.user_answers do
+            @bros_vector = @bros_vector+" "+ans.question_id.to_s()+" "+ans.answer.to_s()+" "+ans.importance.to_s()
+        end
+        #@scores[bro.id] = @bro_score.Brofficiency(@user_vector, @bros_vector)
+
+        @scores[bro.id] = 5
+    end
+
+    @users = User.without_user(current_user).paginate(:order =>"name ASC", :page=> params[:page])
+
   end
 
   def new
