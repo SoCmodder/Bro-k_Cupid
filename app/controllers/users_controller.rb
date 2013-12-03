@@ -8,27 +8,42 @@ class UsersController < ApplicationController
   end
 
   def index
-    #@bro_score = Rice::Bro.new()
     @bros = User.without_user(current_user).all
-
-    # Format this users answers correctly for matching algo
-    #  String of the form "Q_ID ANS IMP Q_ID ANS IMP ... "
-    @user = current_user
-    @user_vector = ""
-    for ans in @user.user_answers do
-        @user_vector = @user_vector+" "+ans.question_id.to_s()+" "+ans.answer.to_s()+" "+ans.importance.to_s()
-    end
-
     @scores = Hash.new
-    for bro in @bros do
-        @bros_vector = ""
-        for ans in bro.user_answers do
-            @bros_vector = @bros_vector+" "+ans.question_id.to_s()+" "+ans.answer.to_s()+" "+ans.importance.to_s()
-        end
-        #@scores[bro.id] = @bro_score.Brofficiency(@user_vector, @bros_vector)
+    @weights = Hash.new
+    @weights[1] = 0
+    @weights[2] = 1
+    @weights[3] = 10
+    @weights[4] = 50
+    @weights[5] = 100
 
-        @scores[bro.id] = 5
+
+    @user = current_user
+    for user_ans in @user.user_answers do
+
+        for bro in @bros do
+            diff = 0
+            comparedTotal1 = 0
+            comparedTotal2 = 0
+            total1 = 0
+            total2 = 0
+            for bros_ans in bro.user_answers do
+                if user_ans.question_id == bros_ans.question_id
+                    diff = 5 - (user_ans.answer.to_i - bros_ans.answer.to_i).abs
+                    comparedTotal1 += diff * @weights[user_ans.importance.to_i]
+                    comparedTotal2 += diff * @weights[bros_ans.importance.to_i]
+                    total1 += 5 * @weights[user_ans.importance.to_i]
+                    total2 += 5 * @weights[bros_ans.importance.to_i]
+                end
+            end
+            if total1 == 0 or total2 == 0
+                @scores[bro.id] = 0
+            else
+                @scores[bro.id] = Math.sqrt( (comparedTotal1/total1) * (comparedTotal2/total2) ) * 100
+            end
+        end
     end
+
 
     @users = User.without_user(current_user).paginate(:order =>"name ASC", :page=> params[:page])
 
