@@ -19,14 +19,13 @@ class UsersController < ApplicationController
 
 
     @user = current_user
-    for user_ans in @user.user_answers do
-
-        for bro in @bros do
-            diff = 0
-            comparedTotal1 = 0
-            comparedTotal2 = 0
-            total1 = 0
-            total2 = 0
+    for bro in @bros do
+        diff = 0
+        comparedTotal1 = 0
+        comparedTotal2 = 0
+        total1 = 0
+        total2 = 0
+        for user_ans in @user.user_answers do
             for bros_ans in bro.user_answers do
                 if user_ans.question_id == bros_ans.question_id
                     diff = 5 - (user_ans.answer.to_i - bros_ans.answer.to_i).abs
@@ -36,11 +35,11 @@ class UsersController < ApplicationController
                     total2 += 5 * @weights[bros_ans.importance.to_i]
                 end
             end
-            if total1 == 0 or total2 == 0
-                @scores[bro.id] = 0
-            else
-                @scores[bro.id] = Math.sqrt( (comparedTotal1/total1) * (comparedTotal2/total2) ) * 100
-            end
+        end
+        if total1 == 0 or total2 == 0
+          @scores[bro.id] = 0
+        else
+          @scores[bro.id] = ( Math.sqrt( (comparedTotal1.to_f/total1.to_f) * (comparedTotal2.to_f/total2.to_f) ) * 100 )
         end
     end
 
