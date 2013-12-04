@@ -1,8 +1,7 @@
 <%= render 'layouts/header' %>
 <h2><%= @event.title %></h2>
 
-<div>
-<%= @event.description %>
-</div>
+<div> Description: <%= @event.description %> </div> <br>
+<div> Location: <%= @event.location %> </div> <br>
+<div> Time: <%= @event.time %> </div> <br>
 
-<%= debug(params) %>
